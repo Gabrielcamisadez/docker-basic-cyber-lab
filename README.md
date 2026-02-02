@@ -90,5 +90,5 @@ verificando o acesso obtido &#x2013;>
     whoami
     id
 
-![img](./imgs/root_exploit.png)
+![img](./imgs/expl.png)
 
