@@ -70,6 +70,25 @@ configurando o ufw para estudos em um dos containers (srv-main) -->
 serviços rodando no metasploitable2 -->
 
     sudo nmap -Pn -sS -p- 172.18.0.3
+    
+    PORT      STATE SERVICE      REASON
+    21/tcp    open  ftp          syn-ack ttl 64
+    22/tcp    open  ssh          syn-ack ttl 64
+    23/tcp    open  telnet       syn-ack ttl 64
+    25/tcp    open  smtp         syn-ack ttl 64
+    53/tcp    open  domain       syn-ack ttl 64
+    111/tcp   open  rpcbind      syn-ack ttl 64
+    139/tcp   open  netbios-ssn  syn-ack ttl 64
+    445/tcp   open  microsoft-ds syn-ack ttl 64
+    512/tcp   open  exec         syn-ack ttl 64
+    513/tcp   open  login        syn-ack ttl 64
+    514/tcp   open  shell        syn-ack ttl 64
+    1099/tcp  open  rmiregistry  syn-ack ttl 64
+    1524/tcp  open  ingreslock   syn-ack ttl 64
+    2121/tcp  open  ccproxy-ftp  syn-ack ttl 64
+    3306/tcp  open  mysql        syn-ack ttl 64
+    3632/tcp  open  distccd      syn-ack ttl 64
+    5432/tcp  open  postgresql   syn-ack ttl 64
 
 verificando o server message block (SMB) para vulnerabilidades &#x2013;>
 
