@@ -1,0 +1,72 @@
+#+TITLE: Lab Infra: Docker Networking & Target Isolation
+#+OPTIONS: toc:nil num:nil
+
+* setup da rede docker 
+
+criando a rede docker -->
+#+BEGIN_SRC bash
+docker network create --driver bridge lab-cyber
+#+END_SRC
+
+[[./imgs/net_ls.png]]
+
+* deploy dos containers 
+
+** Metasploitable2
+
+criando o container metasploitable2 -->
+#+BEGIN_SRC bash
+docker run -d --name metasploitable2 \
+  --network lab-cyber \
+  --privileged \
+  -it tleemcjr/metasploitable2 /bin/bash -c "/etc/init.d/rc 2 && /bin/bash"
+#+END_SRC
+
+** Servidores web nginx
+
+criando os containers que simulam outros servers -->
+#+begin_src bash
+docker run -d --name srv-web-corp \                                                             
+--network lab-cyber \
+--privileged \
+ubuntu/nginx:latest
+#+end_src
+
+#+BEGIN_SRC bash
+docker run -d --name srv-main \       
+--network lab-cyber \
+--privileged \
+ubuntu/nginx:latest
+#+END_SRC
+
+* Verificand dos containers
+
+containers rodando -->
+#+BEGIN_SRC bash
+docker ps
+#+END_SRC
+
+[[./imgs/ps.png]]
+
+veriricando a network docker criada -->
+#+BEGIN_SRC bash
+docker network inspect lab-cyber | grep -E "Name|IPv4Address"
+#+END_SRC
+
+[[./imgs/net.png]]
+
+* Acesso aos containers
+
+acessando um dos servers como root -->
+#+begin_src bash
+docker exec -it -u 0 srv-main /bin/bash
+#+end_src
+
+[[./imgs/access.png]]
+
+configurando o ufw para estudos em um dos containers -->
+#+begin_src sh
+ufw allow 80/tcp
+ufw allow from 172.18.0.0/24 to any port 22 proto tcp
+ufw allow from 172.18.0.3 to any port 445 proto tcp
+#+end_src
