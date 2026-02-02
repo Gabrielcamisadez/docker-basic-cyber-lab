@@ -6,7 +6,7 @@ criando a rede docker &#x2013;>
 
     docker network create --driver bridge lab-cyber
 
-![img|center](./imgs/net_ls.png)
+![img](./imgs/net_ls.png)
 
 
 # deploy dos containers 🐬
