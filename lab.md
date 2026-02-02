@@ -1,6 +1,6 @@
 
 
-# setup da rede docker
+# setup da rede docker 🌐
 
 criando a rede docker &#x2013;>
 
@@ -9,7 +9,7 @@ criando a rede docker &#x2013;>
 ![img](./imgs/net_ls.png)
 
 
-# deploy dos containers
+# deploy dos containers 🐬
 
 
 ## Metasploitable2
